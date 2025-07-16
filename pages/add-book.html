@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <header class="navbar">
         <a href="../index.html">
         <div class="left-navbar">
             <img src="../assets/imgs/logo.avif" class="logo-img" alt="library logo">
@@ -20,45 +20,45 @@
                 <button class="add-book-button">+</button>
             </a>
         </div>
-    </nav>
+    </header>
 
     <main>
         <form class="form" action="">
             <div class="container-form">
-            <div class="field">
-                <label for="name">Name:</label>
-                <input type="text">
-            </div>
-
-            <div class="field">
-                <label for="Ranking">Ranking:</label>
-                <select name="Ranking" id="">
-                    <option value="">Choose a rating</option>
-                    <option value="1">★☆☆☆☆ - 1 Star</option>
-                    <option value="2">★★☆☆☆ - 2 Stars</option>
-                    <option value="3">★★★☆☆ - 3 Stars</option>
-                    <option value="4">★★★★☆ - 4 Stars</option>
-                    <option value="5">★★★★★ - 5 Stars</option>
-
-                </select>
-            </div>
-
-            <div class="field">
-                <data value=""></data>
-            </div>
-
-            <div class="field">
-                <label for="review-text" class="label">Review</label>
-                <div class="control">
-                    <textarea id="review-text" class="textarea" rows="5" placeholder="Write your thoughts here..."></textarea>
+                <div class="field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
                 </div>
-            </div>
 
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="button is-link">Add</button>
+                <div class="field">
+                    <label for="ranking">Ranking:</label>
+                    <select name="ranking" id="ranking">
+                        <option value="">Choose a rating</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                    </select>
                 </div>
-            </div>
+
+                <div class="field">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                <div class="field">
+                    <label for="review-text" class="label">Review</label>
+                    <div class="control">
+                        <textarea id="review-text" name="review-text" class="textarea" rows="5" placeholder="Write your thoughts here..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-link">Add</button>
+                    </div>
+                </div>
             </div>
         </form>
     </main>
