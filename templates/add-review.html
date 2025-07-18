@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My virtual library</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <header class="navbar">
-        <a href="../index.html">
-        <div class="left-navbar">
-            <img src="../assets/imgs/logo.avif" class="logo-img" alt="library logo">
-            <span class="logo-text">Open library</span>
-        </div>
-        </a>
+{% extends "layout.html" %}
 
-        <div class="right-navbar">
-            <a href="pages/add-book.html">
-                <button class="add-book-button">+</button>
-            </a>
-        </div>
-    </header>
+{% block title %}Add New Movie Review - My Movie Library{% endblock %}
 
-    <main>
-        <form class="form" action="">
+{% block content %}
+        <form class="form" action="{{ url_for('add-review') }}" method="POST" enctype="multipart/form-data">
             <div class="container-form">
                 <div class="field">
                     <label for="name">Name:</label>
@@ -40,6 +20,14 @@
                         <option value="4">★★★★☆ - 4 Stars</option>
                         <option value="5">★★★★★ - 5 Stars</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="poster">Upload Poster</label>
+
+                    <label class="custom-file-label" for="poster">Choose file...</label>
+
+                    <input type="file" id="poster" name="poster" accept="image/png, image/jpeg" required hidden>
                 </div>
 
                 <div class="field">
@@ -61,12 +49,4 @@
                 </div>
             </div>
         </form>
-    </main>
-
-    <footer>
-        gabileu master
-    </footer>
-
-    
-</body>
-</html>
+    {% endblock %}

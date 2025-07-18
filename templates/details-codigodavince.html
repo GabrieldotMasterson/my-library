@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ book.title }} - My book Library{% endblock title %}
+
+{% block content %}
+        <div class="card-lib">
+                <img class="card-img" src="{{ url_for('static', filename=book.poster_path) }}" alt="card-img">
+                <h1>{{ book.name }}</h1>
+                <div class="book-section rating-details">
+                <p><strong>Rating:</strong></p>
+                <div class="rating">
+                        {% for i in range(5) %} {% if (i + 1) <= (book.stars|int) %}
+                        <span>★</span>
+                        {% else %}
+                        <span class="star-empty">★</span>
+                        {% endif %} {% endfor %}
+                    </div>
+                </div>
+                <span><strong>publication date: book.watched_date</strong></span>
+                <hr>
+                <p>{{book.review}}</p>
+            
+        </div>
+        
+{% endblock %}

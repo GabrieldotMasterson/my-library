@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block title %}My Movie Library{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Welcome to Open library</h1>
+            
+            <p class="hero-subtitle">feel welcome to explore and learn for free</p>
+        </div>
+        <a href="{{url_for('add-review') }}">
+            <button class="button-hero"><strong>ADD A NEW BOOK</strong></button>
+        </a>
+    </section>
+
+    <section class="cards-container">
+        <div class="cta-card">
+            <div>
+            <h1 class="cta-title">explore</h1>
+            <p class="cta-subtitle">and have lots of fun</p>
+            <p class="cta-text">We have a lot of diverse content from computing to shuttlecock</p>
+            </div>
+            <hr>
+            <button>find out more</button>
+        </div>
+
+        {% for book in books %}
+
+            <a href="{{ url_for('book_details', book_id=book.id) }}"  class="card-link">
+            <div class="card">
+                <img class="card-img" src="{{ url_for('static', filename=book.poster_path) }}" alt="Poster for {{ book.title }}">
+
+                <h1>{{ book.title }}</h1>
+                <div class="rating">
+                    {% for i in range(5) %}
+                    
+                        {% if (i + 1) <= (book.stars|int) %}
+                        <span>★</span>
+                        {% else %}
+                        <span class="star-empty">★</span>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+                <span><strong>publication date: today</strong></span>
+                <hr>
+                <p>{{ book.review }}</p>
+                <button class="button-card">READ</button>
+            </div>
+            </a>
+
+        {% endfor %}
+        
+    </section>
+{% endblock %}

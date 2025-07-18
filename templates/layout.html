@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Movie Library{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    
+    <header class="navbar">
+        <a href="{{url_for('index')}}">
+        <div class="left-navbar">
+            <img src="{{ url_for('static', filename='assets/imgs/logo.avif') }}" class="logo-img" alt="library logo">
+            <span class="logo-text">Open library</span>
+        </div>
+        </a>
+
+        <div class="right-navbar">
+            <a href="{{ url_for('add-review') }}">
+                <button class="add-book-button">+</button>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        gabileu master
+    </footer>
+</body>
+</html>
